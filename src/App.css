@@ -1,0 +1,828 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.homepage {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.inputdiv {
+  display: flex;
+  width: 300px;
+  height: 70px;
+  margin: 20px;
+}
+.inputdiv input {
+  width: 400px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.urldiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  height: 700px;
+  border: 1px solid blue;
+}
+.urldiv1 {
+  width: auto;
+  flex: 1;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv2 {
+  width: auto;
+  flex: 1;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv3 {
+  flex: 1;
+  width: auto;
+
+  height: 100%;
+  border: 1px solid red;
+}
+.linkimage {
+  font-size: 10px;
+}
+.urldiv4 {
+  width: auto;
+  flex: 1;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.dimdiv {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  flex-wrap: wrap;
+}
+.dimdiv > * {
+  flex: 1 1 auto;
+  height: 30px;
+  width: auto;
+  border: 1px solid blue;
+}
+.urldiv5 {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv6 {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv7 {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv8 {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv9 {
+  flex: 1;
+  width: auto;
+  height: 100%;
+  border: 1px solid red;
+}
+.urldiv10 {
+  flex: 1;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.heightdiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+}
+.heightdiv > * {
+  flex: 1 1 auto;
+  height: 40px;
+  border: 1px solid red;
+}
+
+.productiddiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+}
+.productiddiv > * {
+  flex: 1 1 auto;
+  height: 40px;
+  border: 1px solid red;
+}
+
+.prodimageurldiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+}
+.prodimageurldiv > * {
+  flex: 1 1 auto;
+  height: 40px;
+  border: 1px solid red;
+}
+
+.logindiv {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+.logincontainer {
+  display: flex;
+  margin-left: 300px;
+  width: 400px;
+  height: 400px;
+  border: 1px solid green;
+  margin-top: 100px;
+  flex-direction: column;
+}
+
+.tickmarkfbx {
+  display: none;
+  color: green;
+}
+.tickmarkglb {
+  display: none;
+  color: green;
+}
+.tickmarkgltf {
+  display: none;
+  color: green;
+}
+
+.emaildiv {
+  width: 300px;
+  display: flex;
+  margin-bottom: 20px;
+}
+.emaildiv input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid black;
+}
+.buttonadminlogin {
+  width: 150px;
+  height: 30px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 5px;
+  border: transparent;
+}
+
+.login {
+  margin: 20px auto;
+  padding: 40px 50px;
+  max-width: 300px;
+  border-radius: 5px;
+  background: yellow;
+  box-shadow: 1px 1px 1px #666;
+}
+.login input {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 14px 12px;
+  font-size: 16px;
+  border-radius: 2px;
+  font-family: Raleway, sans-serif;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  border: 1px solid #c0c0c0;
+  transition: 0.2s;
+}
+
+.login input[type="text"]:hover {
+  border-color: #394be7;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.login input[type="submit"] {
+  border: none;
+  background: #394be7;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+  margin: 20px 0px;
+}
+
+.login input[type="submit"]:hover {
+  background: #394be7;
+}
+
+.login h2 {
+  margin: 20px 0 0;
+  color: #394be7;
+  font-size: 28px;
+}
+
+.login p {
+  margin-bottom: 40px;
+}
+
+.links {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #c0c0c0;
+  margin-bottom: 10px;
+}
+
+.links a {
+  display: table-cell;
+  padding-top: 10px;
+}
+
+.links a:first-child {
+  text-align: left;
+}
+
+.links a:last-child {
+  text-align: right;
+}
+
+.login h2,
+.login p,
+.login a {
+  text-align: center;
+}
+
+.login a {
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.login a:visited {
+  color: inherit;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}
+.admindropdown {
+  width: 100%;
+  height: 50px;
+}
+.optroles {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #081c6c;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.profile-img {
+  width: 100px;
+}
+.profile-name {
+  color: #fff;
+}
+.logout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #fff;
+  gap: 2px;
+  padding: 1em;
+}
+.imagetickmark {
+  display: none;
+  color: green;
+}
+
+.logoutinside {
+  display: flex;
+  margin: 10px;
+}
+.logoutinside span {
+  margin-right: 10px;
+}
+.logout-button {
+  background-color: yellow;
+  height: 40px;
+  width: 70px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #081c6c;
+}
+.logout-button:hover {
+  border-radius: 15px;
+  background-color: #081c6c;
+  color: white;
+}
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 99.8%;
+  height: 100px;
+  border: 2px solid;
+  background-color: #fff526;
+}
+.tab-name {
+  margin-top: 35px;
+  cursor: pointer;
+}
+.applicant-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  .logged-in {
+    display: none;
+  }
+  .time-year {
+    display: none;
+  }
+  .profile-info {
+    padding: 0;
+  }
+  .logout {
+    padding: 0;
+  }
+}
+.tab-name.selected,
+.applicant-name.selected {
+  font-weight: bold;
+}
+.navoperation {
+  font-size: 20px;
+  font-family: Manrope, sans-serif;
+}
+.navoperation a {
+  text-decoration: none;
+}
+
+#addrolesdiv {
+  display: none;
+}
+.modmain1 {
+  display: none;
+}
+.modmain2 {
+  display: none;
+}
+.modmain3 {
+  display: none;
+}
+.alert-box {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid red;
+  border-radius: 4px;
+}
+.userdatanew {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid red;
+  height: auto;
+  width: 100%;
+  margin: 10px;
+}
+
+.userdatanew > * {
+  flex: 1 1 auto;
+  border: 1px solid blue;
+  height: auto;
+  margin: 10px;
+}
+
+.allmerchantdata {
+  display: none;
+}
+
+.allmerchantquality {
+  display: none;
+}
+
+.warning1 {
+  color: #eb2121;
+  background-color: yellow;
+  border-color: red;
+  border: 1px solid green;
+  display: none;
+}
+.warning2 {
+  color: #eb2121;
+  background-color: yellow;
+  border-color: red;
+  border: 1px solid green;
+  display: none;
+}
+.warning3 {
+  color: #eb2121;
+  background-color: yellow;
+  border-color: red;
+  border: 1px solid green;
+  display: none;
+}
+body {
+  margin: 0;
+}
+
+.border {
+  padding: 3em;
+  text-align: left;
+}
+.banner-grid {
+  padding: 1em;
+  display: grid;
+  height: 100vh;
+  border: 2px solid rgb(214, 205, 205);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.6fr 0.6fr 0.6fr 1.2fr 1.5fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "department role experience deadline"
+    "jobpostdate jobpostdate location location"
+    "job-type number-vacancy salary job-post-date"
+    "looking doing perks bonus"
+    "footer footer footer footer";
+  grid-gap: 2rem;
+}
+
+nav {
+  grid-area: nav;
+}
+nav hr {
+  width: 70%; /* reduce the width to 50% */
+  height: 2px; /* set the height to 1.2px */
+  background-color: rgb(149, 143, 231); /* set the background color to blue */
+  border: none; /* remove the default border */
+  float: left; /* align to the left */
+}
+
+#department {
+  grid-area: department;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#role {
+  grid-area: role;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.roleinput {
+  border: 1px solid #ccc; /* add a border */
+  padding: 10px; /* add some padding */
+  font-size: 16px; /* set the font size */
+  border-radius: 5px; /* round the corners */
+  box-shadow: none; /* remove any box shadow */
+  background-color: #fff; /* set the background color */
+  color: #333; /* set the text color */
+  width: 90%;
+}
+
+/* style the input when it's focused */
+.roleinput:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #1de9b6; /* set a custom border color */
+  box-shadow: 0 0 3px #1de9b6; /* add a box shadow */
+}
+
+#experience {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: experience;
+}
+#deadline {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: deadline;
+}
+#jobpostdate {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: jobpostdate;
+}
+#location {
+  grid-area: location;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#job-type {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: job-type;
+}
+#number-vacancy {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: number-vacancy;
+}
+
+#salary {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: salary;
+}
+
+#job-post-date {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: job-post-date;
+}
+#looking {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: looking;
+}
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#doing {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: doing;
+}
+
+#perks {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: perks;
+}
+#bonus {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-area: bonus;
+}
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: footer;
+}
+.post-btn {
+  background-color: rgb(76, 76, 208);
+  color: white;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-btn:hover {
+  background-color: #5555ff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 750px) {
+  .banner-grid {
+    height: 2500px;
+    padding: 2em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 3fr 3fr 3fr 3fr 2fr;
+    grid-template-areas:
+      "nav"
+      "department"
+      "role"
+      "experience"
+      "deadline"
+      "jobpostdate"
+      "jobpostdate"
+      "location"
+      "location"
+      "job-type"
+      "number-vacancy"
+      "salary"
+      "job-post-date"
+      "looking"
+      "doing"
+      "perks"
+      "bonus"
+      "footer";
+  }
+  .border {
+    padding: 1em;
+  }
+  .logged-in {
+    display: none;
+  }
+  .time-year {
+    display: none;
+  }
+  .profile-info {
+    padding: 0;
+  }
+  .logout {
+    padding: 0;
+  }
+}
+[type="date"] {
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+label {
+  display: block;
+}
+h6 {
+  display: inline;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+.container {
+  margin: 2em auto;
+  width: 90%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #a6c842;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #9cc204;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+input[type="text"]:focus {
+  border: 2px solid #555;
+}
+
+.text-center {
+  text-align: center;
+}
+.highlight-row {
+  background-color: #eaf3d2;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+.table th.vertical-line,
+.table td.vertical-line {
+  border-left: 1px solid #9cc204;
+}
+.tab-name.selected,
+.applicant-name.selected {
+  font-weight: bold;
+}
