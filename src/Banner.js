@@ -104,6 +104,9 @@ const Banner = () => {
   const handleEducationChange = (event) => {
     setEducationReq(event.target.value);
   };
+  const show_alert = () => {
+    alert("Posted Successfully");
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -132,7 +135,8 @@ const Banner = () => {
         "https://0mbq9runce.execute-api.ap-south-1.amazonaws.com/prod/jobpost",
         formData
       );
-      // Do something with the response data
+      show_alert();
+      window.location.reload();
     } catch (error) {
       console.error(error);
     } finally {

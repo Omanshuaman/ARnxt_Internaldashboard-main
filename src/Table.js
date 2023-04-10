@@ -48,14 +48,17 @@ function TableRow(props) {
   useEffect(() => {
     axios
       .get(
-        "https://3pg8ch1ir2.execute-api.us-east-1.amazonaws.com/prod/applicants"
+        "https://gsrhol3xd0.execute-api.ap-south-1.amazonaws.com/prod/applicants"
       )
       .then((response) => setApplicants(response.data.applicants))
       .catch((error) => console.log(error));
-  }, []);
+  }, [applicants]);
+  console.log(applicants);
 
   const filteredRows = applicants.filter(
-    (row) => row.job_id.toUpperCase().indexOf(props.filter) !== -1
+    (row) =>
+      row.job_id &&
+      row.job_id.toString().toUpperCase().indexOf(props.filter) !== -1
   );
 
   return filteredRows.map((row, index) => (
@@ -63,7 +66,13 @@ function TableRow(props) {
       <td className="vertical-line">{row.name}</td>
       <td className="vertical-line">{row.emailid}</td>
       <td className="vertical-line">{row.contactNumber}</td>
-      <td className="vertical-line">{row.resumeUrl}</td>
+      <td
+        className="vertical-line"
+        style={{ cursor: "pointer" }}
+        onClick={() => window.open(row.resumeUrl, "_blank")}
+      >
+        {row.resumeUrl}
+      </td>
       <td className="vertical-line">{row.applied_date}</td>
       <td className="vertical-line">{row.job_id}</td>
     </tr>
