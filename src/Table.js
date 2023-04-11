@@ -15,7 +15,7 @@ function Table() {
           type="text"
           id="myInput"
           onChange={handleFilterChange}
-          placeholder="JobId"
+          placeholder="Job Id"
         />
         <table
           className="table"
@@ -53,7 +53,6 @@ function TableRow(props) {
       .then((response) => setApplicants(response.data.applicants))
       .catch((error) => console.log(error));
   }, [applicants]);
-  console.log(applicants);
 
   const filteredRows = applicants.filter(
     (row) =>

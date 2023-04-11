@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Banner = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOption1, setSelectedOption1] = useState(null);
@@ -59,7 +60,6 @@ const Banner = () => {
   const handleRoleChange = (event) => {
     setRole(event.target.value);
   };
-
   const handleDeadlineChange = (event) => {
     const selectedDate = event.target.value;
     const [year, month, day] = selectedDate.split("-");
@@ -135,8 +135,7 @@ const Banner = () => {
         "https://0mbq9runce.execute-api.ap-south-1.amazonaws.com/prod/jobpost",
         formData
       );
-      show_alert();
-      window.location.reload();
+      toast("Posted Successfully");
     } catch (error) {
       console.error(error);
     } finally {
@@ -276,6 +275,7 @@ const Banner = () => {
             {isLoading ? "Posting..." : "Post"}
           </button>
         </footer>
+        <ToastContainer />
       </div>
     </div>
   );
