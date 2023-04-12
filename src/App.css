@@ -380,6 +380,10 @@ body {
 .logoutinside span {
   margin-right: 10px;
 }
+.button-row-logout {
+  display: flex;
+  gap: 0.5em;
+}
 .logout-button {
   background-color: yellow;
   height: 40px;

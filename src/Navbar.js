@@ -4,7 +4,10 @@ import Arnxt from "./images/arnxtreg.png";
 
 const Navbar = () => {
   const history = useHistory();
-
+  const onBackHandler = (e) => {
+    e.preventDefault();
+    history.goBack();
+  };
   const logoutHandler = (e) => {
     e.preventDefault();
     sessionStorage.removeItem("user");
@@ -52,9 +55,14 @@ const Navbar = () => {
             <div className="logged-in" id="counter"></div>
           </div>
           <div className="time-year">DD:MM:YYYY hh:mm:ss</div>
-          <button className="logout-button" onClick={logoutHandler}>
-            Logout
-          </button>
+          <div className="button-row-logout">
+            <button className="logout-button" onClick={onBackHandler}>
+              Back
+            </button>
+            <button className="logout-button" onClick={logoutHandler}>
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
