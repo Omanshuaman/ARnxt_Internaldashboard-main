@@ -21,8 +21,7 @@ function Table() {
           className="table"
           id="myTable"
           data-filter-control="true"
-          data-show-search-clear-button="true"
-        >
+          data-show-search-clear-button="true">
           <thead>
             <tr>
               <th>Name</th>
@@ -50,9 +49,14 @@ function TableRow(props) {
       .get(
         "https://gsrhol3xd0.execute-api.ap-south-1.amazonaws.com/prod/applicants"
       )
-      .then((response) => setApplicants(response.data.applicants))
+      .then((response) => {
+        const sortedApplicants = response.data.applicants.sort(
+          (a, b) => new Date(b.applied_date) - new Date(a.applied_date)
+        );
+        setApplicants(sortedApplicants);
+      })
       .catch((error) => console.log(error));
-  }, [applicants]);
+  }, []);
 
   const filteredRows = applicants.filter(
     (row) =>
@@ -68,8 +72,7 @@ function TableRow(props) {
       <td
         className="vertical-line"
         style={{ cursor: "pointer" }}
-        onClick={() => window.open(row.resumeUrl, "_blank")}
-      >
+        onClick={() => window.open(row.resumeUrl, "_blank")}>
         {row.resumeUrl}
       </td>
       <td className="vertical-line">{row.applied_date}</td>
