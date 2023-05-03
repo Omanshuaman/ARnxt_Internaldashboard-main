@@ -18,6 +18,8 @@ import Headermain from "./Headermain";
 import Loginmain from "./Loginmain";
 import JobPost from "./JobPost";
 import Applicants from "./Applicants";
+import UpdatePostings from "./UpdatePostings";
+import JobpostingInfo from "./JobpostingInfo";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
 
           <Route path="/main" component={Headermain} />
           <Route path="/modelpath" component={Loginmain} />
+          <Route path="/updatePostings" component={UpdatePostings} />
+          <Route path="/jobpostingInfo" component={JobpostingInfo} />
         </Switch>
       </Router>
     </div>

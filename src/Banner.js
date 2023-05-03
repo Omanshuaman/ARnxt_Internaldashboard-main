@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 const Banner = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOption1, setSelectedOption1] = useState(null);
-  const [selectedOption2, setSelectedOption2] = useState(null);
   const [selectedOption3, setSelectedOption3] = useState(null);
   const [role, setRole] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -41,14 +40,6 @@ const Banner = () => {
     { value: "2-5 Years", label: "2-5 Years" },
     { value: "5-8 Years", label: "5-8 Years" },
     { value: "8-10 Years", label: "8-10 Years" },
-  ];
-
-  const options2 = [
-    { value: "9-5", label: "9-5" },
-    { value: "10-6", label: "10-6" },
-    { value: "10-8", label: "10-8" },
-    { value: "12-9", label: "12-9" },
-    { value: "10-7", label: "10-7" },
   ];
 
   const options3 = [
@@ -104,9 +95,7 @@ const Banner = () => {
   const handleEducationChange = (event) => {
     setEducationReq(event.target.value);
   };
-  const show_alert = () => {
-    alert("Posted Successfully");
-  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -176,8 +165,7 @@ const Banner = () => {
             type="date"
             name="dateofbirth"
             id="dateofbirth"
-            onChange={handleDeadlineChange}
-          ></input>
+            onChange={handleDeadlineChange}></input>
         </div>
 
         <div id="jobpostdate">
@@ -186,8 +174,7 @@ const Banner = () => {
             type="date"
             name="dateofbirth"
             id="dateofbirth"
-            onChange={handleJobPostDateChange}
-          ></input>
+            onChange={handleJobPostDateChange}></input>
         </div>
         <div id="location">
           <div>Location:</div>
@@ -206,8 +193,7 @@ const Banner = () => {
           <div>No. of Vacancy:</div>
           <input
             className="roleinput"
-            onChange={handleNumberOfVacancyChange}
-          ></input>
+            onChange={handleNumberOfVacancyChange}></input>
         </div>
         <div id="salary">
           <div>Salary:</div>
@@ -226,8 +212,7 @@ const Banner = () => {
             cols="50"
             name="comment"
             form="usrform"
-            onChange={handleWhatWeAreLookingForChange}
-          ></textarea>
+            onChange={handleWhatWeAreLookingForChange}></textarea>
         </div>
         <div id="doing">
           <div>
@@ -238,8 +223,7 @@ const Banner = () => {
             cols="50"
             name="comment"
             form="usrform"
-            onChange={handleWhatYouWillBeDoingChange}
-          ></textarea>
+            onChange={handleWhatYouWillBeDoingChange}></textarea>
         </div>
         <div id="perks">
           <div>
@@ -250,8 +234,7 @@ const Banner = () => {
             cols="50"
             name="comment"
             form="usrform"
-            onChange={handlePerksBenefitsChange}
-          ></textarea>
+            onChange={handlePerksBenefitsChange}></textarea>
         </div>
         <div id="bonus">
           <div>
@@ -262,16 +245,14 @@ const Banner = () => {
             cols="50"
             name="comment"
             form="usrform"
-            onChange={handleBonusPointChange}
-          ></textarea>
+            onChange={handleBonusPointChange}></textarea>
         </div>
         <footer>
           {isLoading && <div className="loader"></div>}
           <button
             className="post-btn"
             onClick={handleSubmit}
-            disabled={isLoading}
-          >
+            disabled={isLoading}>
             {isLoading ? "Posting..." : "Post"}
           </button>
         </footer>
