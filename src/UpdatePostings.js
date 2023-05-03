@@ -53,7 +53,9 @@ const UpdatePostings = () => {
                   <button onClick={() => openJobPost(applicant.id)}>
                     View
                   </button>
-                  <button>Edit</button>
+                  <button onClick={() => openJobPost(applicant.id)}>
+                    Edit
+                  </button>
                   <button>Delete</button>
                 </td>
               </tr>

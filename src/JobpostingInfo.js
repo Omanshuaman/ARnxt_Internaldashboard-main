@@ -1,14 +1,355 @@
-import React from "react";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
-
+import React, { useState, useEffect } from "react";
+import Select from "react-select";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const JobpostingInfo = () => {
-  const location = useLocation();
-  const id = new URLSearchParams(location.search).get("id");
+  const location1 = useLocation();
+  const [jobPostingData, setJobPostingData] = useState(null);
+  const id = new URLSearchParams(location1.search).get("id");
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption1, setSelectedOption1] = useState(null);
+  const [selectedOption3, setSelectedOption3] = useState(null);
+  const [role, setRole] = useState("");
+  const [deadline, setDeadline] = useState("");
+  const [jobPostDate, setJobPostDate] = useState("");
+  const [location, setLocation] = useState("");
+  const [educationReq, setEducationReq] = useState("");
+  const [numberOfVacancy, setNumberOfVacancy] = useState("");
+  const [whatWeAreLookingFor, setWhatWeAreLookingFor] = useState("");
+  const [whatYouWillBeDoing, setWhatYouWillBeDoing] = useState("");
+  const [bonusPoint, setBonusPoint] = useState("");
+  const [perksBenefits, setPerksBenefits] = useState("");
+  const [salary, setSalary] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const options = [
+    { value: "Technology & IT", label: "Technology & IT" },
+    { value: "Operations", label: "Operations" },
+    { value: "Product Marketing", label: "Product Marketing" },
+    { value: "Sales", label: "Sales" },
+    { value: "Finance", label: "Finance" },
+    { value: "Legal", label: "Legal" },
+    { value: "HR & Admin", label: "HR & Admin" },
+    { value: "Customer Support", label: "Customer Support" },
+  ];
+
+  const options1 = [
+    { value: "Fresher", label: "Fresher" },
+    { value: "0-1 Years", label: "0-1 Years" },
+    { value: "1-2 Years", label: "1-2 Years" },
+    { value: "2-5 Years", label: "2-5 Years" },
+    { value: "5-8 Years", label: "5-8 Years" },
+    { value: "8-10 Years", label: "8-10 Years" },
+  ];
+
+  const options3 = [
+    { value: "Full Time", label: "Full Time" },
+    { value: "Part Time", label: "Part Time" },
+    { value: "Contract", label: "Contract" },
+  ];
+  useEffect(() => {
+    axios
+      .get(
+        `https://0mbq9runce.execute-api.ap-south-1.amazonaws.com/prod/jobpost?id=${id}`
+      )
+      .then((response) => {
+        if (response.data) {
+          setJobPostingData(response.data);
+        }
+      })
+      .catch((error) => console.error(error));
+  }, []);
+  useEffect(() => {
+    setRole(jobPostingData?.role);
+    setLocation(jobPostingData?.location);
+    setNumberOfVacancy(jobPostingData?.location);
+    setWhatWeAreLookingFor(jobPostingData?.what_we_are_looking_for);
+    setWhatYouWillBeDoing(jobPostingData?.what_you_will_be_doing);
+    setBonusPoint(jobPostingData?.bonus_point);
+    setPerksBenefits(jobPostingData?.perks_benefits);
+    setSalary(jobPostingData?.salary);
+    setEducationReq(jobPostingData?.education_requirement);
+  }, [jobPostingData]);
+  const handleRoleChange = (event) => {
+    setRole(event.target.value);
+  };
+  const handleDeadlineChange = (event) => {
+    const selectedDate = event.target.value;
+    const [year, month, day] = selectedDate.split("-");
+    const formattedDate = `${day}-${month}-${year}`;
+    setDeadline(formattedDate);
+  };
+
+  const handleJobPostDateChange = (event) => {
+    const selectedDate = event.target.value;
+    const [year, month, day] = selectedDate.split("-");
+    const formattedDate = `${day}-${month}-${year}`;
+    setJobPostDate(formattedDate);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  };
+
+  const handleNumberOfVacancyChange = (event) => {
+    setNumberOfVacancy(event.target.value);
+  };
+
+  const handleWhatWeAreLookingForChange = (event) => {
+    setWhatWeAreLookingFor(event.target.value);
+  };
+
+  const handleWhatYouWillBeDoingChange = (event) => {
+    setWhatYouWillBeDoing(event.target.value);
+  };
+
+  const handleBonusPointChange = (event) => {
+    setBonusPoint(event.target.value);
+  };
+
+  const handlePerksBenefitsChange = (event) => {
+    setPerksBenefits(event.target.value);
+  };
+
+  const handleSalaryChange = (event) => {
+    setSalary(event.target.value);
+  };
+  const handleEducationChange = (event) => {
+    setEducationReq(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    jobPostingData.department = selectedOption
+      ? selectedOption
+      : jobPostingData?.department;
+    jobPostingData.experience = selectedOption1
+      ? selectedOption1
+      : jobPostingData?.experience;
+    jobPostingData.job_type = selectedOption3
+      ? selectedOption3
+      : jobPostingData?.job_type;
+    jobPostingData.deadline = deadline ? deadline : jobPostingData?.deadline;
+    jobPostingData.job_post_date = jobPostDate
+      ? jobPostDate
+      : jobPostingData?.job_post_date;
+    const formData = {
+      id: id,
+      job_id: Date.now(),
+      department: jobPostingData.department,
+      role: role,
+      experience: jobPostingData.experience,
+      deadline: jobPostingData.deadline,
+      job_post_date: jobPostingData.job_post_date,
+      location: location,
+      job_type: selectedOption3,
+      number_of_vacancy: numberOfVacancy,
+      education_requirement: educationReq,
+      what_we_are_looking_for: whatWeAreLookingFor,
+      what_you_will_be_doing: whatYouWillBeDoing,
+      bonus_point: bonusPoint,
+      perks_benefits: perksBenefits,
+      salary: salary,
+    };
+
+    // const formData = {
+    //   experience: "Fresher",
+    //   bonus_point: "lorem ippsum",
+    //   department: "Technology & IT",
+    //   number_of_vacancy: "2",
+    //   location: "Work From Homee",
+    //   job_post_date: "05-04-2023",
+    //   salary: "lorem ipsum",
+    //   education_requirement: "lorem ipsum",
+    //   job_id: 1680685522494,
+    //   what_you_will_be_doing:
+    //     "Create low poly models in a blender or any similar applications\n*Create basic textures for blender models or any similar applications",
+    //   what_we_are_looking_for:
+    //     "Experience with optimizing models (low poly) to work on mobile * Excellent understanding of the Unity platform and other 3D designing applications\n* Experience in making game levels\n* Good knowledge of designing software",
+    //   perks_benefits: "lorem ipsuim",
+    //   deadline: "30-04-2023",
+    //   role: "Modelerss",
+    //   id: id,
+    //   job_type: selectedOption3,
+    // };
+    try {
+      const response = await axios.post(
+        "https://0mbq9runce.execute-api.ap-south-1.amazonaws.com/prod/jobpost",
+        formData
+      );
+      toast("Updated Successfully");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   console.log(id);
   return (
     <div>
       <Navbar />
+      <div className="border">
+        <div className="banner-grid">
+          <nav>
+            <div>Update Post Job :</div>
+            <hr></hr>
+          </nav>
+
+          <div id="department">
+            Department:
+            {jobPostingData?.department}
+            <select
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div id="role">
+            <div>Role:</div>
+            <input
+              className="roleinput"
+              value={role}
+              onChange={handleRoleChange}></input>
+          </div>
+          <div id="experience">
+            <div>Experience :{jobPostingData?.experience}</div>
+
+            <select
+              value={selectedOption1}
+              onChange={(e) => setSelectedOption1(e.target.value)}>
+              {options1.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div id="deadline">
+            <div>Deadline :{jobPostingData?.deadline}</div>
+            <input
+              type="date"
+              name="dateofbirth"
+              id="dateofbirth"
+              onChange={handleDeadlineChange}></input>
+          </div>
+
+          <div id="jobpostdate">
+            <div>Job Post Date :{jobPostingData?.job_post_date}</div>
+            <input
+              type="date"
+              name="dateofbirth"
+              id="dateofbirth"
+              onChange={handleJobPostDateChange}></input>
+          </div>
+          <div id="location">
+            <div>Location:</div>
+            <input
+              className="roleinput"
+              value={location}
+              onChange={handleLocationChange}></input>
+          </div>
+
+          <div id="job-type">
+            <div>Job Type: {jobPostingData?.job_type}</div>
+            <select onChange={(e) => setSelectedOption3(e.target.value)}>
+              {options3.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div id="number-vacancy">
+            <div>No. of Vacancy :</div>
+            <input
+              className="roleinput"
+              value={numberOfVacancy}
+              onChange={handleNumberOfVacancyChange}></input>
+          </div>
+          <div id="salary">
+            <div>Salary : </div>
+            <input
+              className="roleinput"
+              value={salary}
+              onChange={handleSalaryChange}></input>
+          </div>
+          <div id="job-post-date">
+            <div>Education Requirement :</div>
+            <input
+              className="roleinput"
+              value={educationReq}
+              onChange={handleEducationChange}></input>
+          </div>
+          <div id="looking">
+            <div>
+              What we are looking for: <h6>(use * for new line)</h6>
+            </div>
+            <textarea
+              rows="6"
+              cols="50"
+              name="comment"
+              form="usrform"
+              value={whatWeAreLookingFor}
+              onChange={handleWhatWeAreLookingForChange}></textarea>
+          </div>
+          <div id="doing">
+            <div>
+              What you will be doing: <h6>(use * for new line)</h6>
+            </div>
+            <textarea
+              rows="6"
+              cols="50"
+              name="comment"
+              form="usrform"
+              value={whatYouWillBeDoing}
+              onChange={handleWhatYouWillBeDoingChange}></textarea>
+          </div>
+          <div id="perks">
+            <div>
+              Perks & Benefits: <h6>(use * for new line)</h6>
+            </div>
+            <textarea
+              rows="6"
+              cols="50"
+              name="comment"
+              form="usrform"
+              value={perksBenefits}
+              onChange={handlePerksBenefitsChange}></textarea>
+          </div>
+          <div id="bonus">
+            <div>
+              Bonus Points: <h6>(use * for new line)</h6>
+            </div>
+            <textarea
+              rows="6"
+              cols="50"
+              name="comment"
+              form="usrform"
+              value={bonusPoint}
+              onChange={handleBonusPointChange}></textarea>
+          </div>
+          <footer>
+            {isLoading && <div className="loader"></div>}
+            <button
+              className="post-btn"
+              onClick={handleSubmit}
+              disabled={isLoading}>
+              {isLoading ? "Updating..." : "Update"}
+            </button>
+          </footer>
+          <ToastContainer />
+        </div>
+      </div>
     </div>
   );
 };
