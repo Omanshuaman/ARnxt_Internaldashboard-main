@@ -157,25 +157,6 @@ const JobpostingInfo = () => {
       salary: salary,
     };
 
-    // const formData = {
-    //   experience: "Fresher",
-    //   bonus_point: "lorem ippsum",
-    //   department: "Technology & IT",
-    //   number_of_vacancy: "2",
-    //   location: "Work From Homee",
-    //   job_post_date: "05-04-2023",
-    //   salary: "lorem ipsum",
-    //   education_requirement: "lorem ipsum",
-    //   job_id: 1680685522494,
-    //   what_you_will_be_doing:
-    //     "Create low poly models in a blender or any similar applications\n*Create basic textures for blender models or any similar applications",
-    //   what_we_are_looking_for:
-    //     "Experience with optimizing models (low poly) to work on mobile * Excellent understanding of the Unity platform and other 3D designing applications\n* Experience in making game levels\n* Good knowledge of designing software",
-    //   perks_benefits: "lorem ipsuim",
-    //   deadline: "30-04-2023",
-    //   role: "Modelerss",
-    //   id: id,
-    //   job_type: selectedOption3,
     // };
     try {
       const response = await axios.post(
