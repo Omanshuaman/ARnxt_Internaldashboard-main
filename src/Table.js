@@ -43,6 +43,7 @@ function Table() {
 //aa
 function TableRow(props) {
   const [applicants, setApplicants] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -54,8 +55,12 @@ function TableRow(props) {
           (a, b) => new Date(b.applied_date) - new Date(a.applied_date)
         );
         setApplicants(sortedApplicants);
+        setLoading(false); // set loading to false when data is fetched
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setLoading(false); // set loading to false on error as well
+      });
   }, []);
 
   const filteredRows = applicants.filter(
@@ -63,7 +68,15 @@ function TableRow(props) {
       row.job_id &&
       row.job_id.toString().toUpperCase().indexOf(props.filter) !== -1
   );
-
+  if (loading) {
+    return (
+      <tr>
+        <td colSpan="6" style={{ textAlign: "center" }}>
+          Loading...
+        </td>
+      </tr>
+    );
+  }
   return filteredRows.map((row, index) => (
     <tr key={index} className={index % 2 === 1 ? "highlight-row" : ""}>
       <td className="vertical-line">{row.name}</td>

@@ -21,6 +21,7 @@ import JobPost from "./JobPost";
 import Applicants from "./Applicants";
 import UpdatePostings from "./UpdatePostings";
 import JobpostingInfo from "./JobpostingInfo";
+import ViewPostingInfo from "./ViewPostingInfo";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/modelpath" component={Loginmain} />
           <Route path="/updatePostings" component={UpdatePostings} />
           <Route path="/jobpostingInfo" component={JobpostingInfo} />
+          <Route path="/viewpostingInfo" component={ViewPostingInfo} />
         </Switch>
       </Router>
     </div>

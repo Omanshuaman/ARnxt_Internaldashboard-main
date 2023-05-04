@@ -76,7 +76,12 @@ const UpdatePostings = () => {
       search: `?id=${id}`,
     });
   }
-
+  function viewJobPost(id) {
+    history.push({
+      pathname: "/viewpostingInfo",
+      search: `?id=${id}`,
+    });
+  }
   return (
     <>
       <Navbar />
@@ -101,7 +106,7 @@ const UpdatePostings = () => {
                 <td className="vertical-line">{applicant.job_id}</td>
                 <td className="vertical-line">{applicant.role}</td>
                 <td className="vertical-line">
-                  <button onClick={() => openJobPost(applicant.id)}>
+                  <button onClick={() => viewJobPost(applicant.id)}>
                     View
                   </button>
                   <button onClick={() => openJobPost(applicant.id)}>

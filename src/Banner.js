@@ -54,15 +54,17 @@ const Banner = () => {
   const handleDeadlineChange = (event) => {
     const selectedDate = event.target.value;
     const [year, month, day] = selectedDate.split("-");
-    const formattedDate = `${day}-${month}-${year}`;
-    setDeadline(formattedDate);
+    const timestamp = Date.parse(`${year}-${month}-${day}`) / 1000;
+    console.log(timestamp);
+    setDeadline(timestamp);
   };
 
   const handleJobPostDateChange = (event) => {
     const selectedDate = event.target.value;
     const [year, month, day] = selectedDate.split("-");
-    const formattedDate = `${day}-${month}-${year}`;
-    setJobPostDate(formattedDate);
+    const timestamp = Date.parse(`${year}-${month}-${day}`) / 1000;
+    console.log(timestamp);
+    setJobPostDate(timestamp);
   };
 
   const handleLocationChange = (event) => {
@@ -101,8 +103,7 @@ const Banner = () => {
     setIsLoading(true);
 
     const formData = {
-      id: uuidv4(),
-      job_id: Date.now(),
+      id: Date.now().toString(),
       department: selectedOption.value,
       role: role,
       experience: selectedOption1.value,
