@@ -88,7 +88,9 @@ function TableRow(props) {
         onClick={() => window.open(row.resumeUrl, "_blank")}>
         {row.resumeUrl}
       </td>
-      <td className="vertical-line">{row.applied_date}</td>
+      <td className="vertical-line">
+        {new Date(row.applied_date).toLocaleDateString("en-GB")}
+      </td>
       <td className="vertical-line">{row.job_id}</td>
     </tr>
   ));
