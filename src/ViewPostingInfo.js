@@ -65,7 +65,7 @@ const ViewPostingInfo = () => {
   useEffect(() => {
     setRole(jobPostingData?.role);
     setLocation(jobPostingData?.location);
-    setNumberOfVacancy(jobPostingData?.location);
+    setNumberOfVacancy(jobPostingData?.number_of_vacancy);
     setWhatWeAreLookingFor(jobPostingData?.what_we_are_looking_for);
     setWhatYouWillBeDoing(jobPostingData?.what_you_will_be_doing);
     setBonusPoint(jobPostingData?.bonus_point);
