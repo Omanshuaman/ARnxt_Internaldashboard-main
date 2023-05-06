@@ -52,6 +52,12 @@ const HRmanage = () => {
             <a href="/viewapplicants"> View Applicants Info</a>
           </p>
         </div>
+        <img src={Divider} alt="Your SVG" className="divider-svg" />
+        <div>
+          <p className="navoperation">
+            <a href="/updatePostings">Update Post job Info</a>
+          </p>
+        </div>
       </div>
 
       <form className="login" id="addrolesdiv" onSubmit={submitHandler}>

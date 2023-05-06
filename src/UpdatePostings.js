@@ -106,13 +106,43 @@ const UpdatePostings = () => {
                 <td className="vertical-line">{applicant.job_id}</td>
                 <td className="vertical-line">{applicant.role}</td>
                 <td className="vertical-line">
-                  <button onClick={() => viewJobPost(applicant.id)}>
+                  <button
+                    style={{
+                      backgroundColor: "#4CAF50",
+                      color: "white",
+                      padding: "10px 20px",
+                      margin: "5px",
+                      borderRadius: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => viewJobPost(applicant.id)}>
                     View
                   </button>
-                  <button onClick={() => openJobPost(applicant.id)}>
+                  <button
+                    style={{
+                      backgroundColor: "#2196F3",
+                      color: "white",
+                      padding: "10px 20px",
+                      margin: "5px",
+                      borderRadius: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => openJobPost(applicant.id)}>
                     Edit
                   </button>
-                  <button onClick={() => openModal(applicant.id)}>
+                  <button
+                    style={{
+                      backgroundColor: "#f44336",
+                      color: "white",
+                      padding: "10px 20px",
+                      margin: "5px",
+                      borderRadius: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => openModal(applicant.id)}>
                     Delete
                   </button>
                 </td>
